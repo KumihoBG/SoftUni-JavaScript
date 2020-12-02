@@ -369,3 +369,24 @@ function print(num1, num2){
     console.log(printLine);
     console.log(`Sum: ${sum}`);
 }
+
+// Print triangle
+function triangle(n) {  
+    for (let i = 1; i <= n; i++) {
+        let line = "";
+        for (let j = 1; j <= i; j++) {
+            line += i + " ";   
+        }
+    console.log(line);
+    }
+}
+
+// Print Multiplication table
+function multiplication(n) {
+    for (let a = n; a <= n; a++) {
+        for (let b = 1; b <= 10; b++) {
+           let result = a * b;
+           console.log(`${a} X ${b} = ${result}`);
+        }
+    }
+}
