@@ -390,3 +390,40 @@ function multiplication(n) {
         }
     }
 }
+
+
+// Character sequence
+function characters(arg) {
+    let sequence = arg;
+    for (let i = 0; i < sequence.length; i++)  {
+        let letter = sequence[i];
+        console.log(letter);
+    }
+}
+
+// Vowel sum
+function sum(arg) {
+    let vowels = arg;
+    let sum = 0;
+    for (i = 0; i < vowels.length; i++){
+        switch (vowels.charAt(i)) {
+            case "a": sum += 1; break;
+            case "e": sum += 2; break;
+            case "i": sum += 3; break;
+            case "o": sum += 4; break;
+            case "u": sum += 5; break;
+            default: break;
+        }
+    }
+    console.log(sum);
+}
+
+
+// Reverse string - an array element
+let index = 0;
+let username = input[index++].toString();
+let usernameReverse = "";
+
+for (let i = username.length + 1; i >= 0; i--){
+    usernameReverse += username.charAt(i);
+}
