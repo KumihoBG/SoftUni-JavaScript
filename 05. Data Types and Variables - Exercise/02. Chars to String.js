@@ -1,0 +1,6 @@
+function charsToString(){
+
+
+}
+
+charsToString();
