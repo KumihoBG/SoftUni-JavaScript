@@ -1,0 +1,6 @@
+function chess(n){
+
+
+}
+
+chess();
