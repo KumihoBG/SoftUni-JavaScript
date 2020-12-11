@@ -52,6 +52,38 @@ function greaterNumber(num1, num2) {
     }
 }
 
+// Product of pair elements in an array
+function adjacentElementsProduct(nums) {
+    let product = 0;
+    let result = 0;
+
+    for (let i = 0; i < nums.length - 1; i++) {
+        num1 = nums[i++];
+        num2 = nums[i];
+        product = num1 * num2;
+        if (product > result) {
+            result = product;
+        } else {
+            product = product;
+        }
+        num1 = nums[i--];
+        product = 0;
+    }
+   console.log(result);;
+}
+
+// Jumps to avoid obstacles in array
+let arraySorted = nums.sort();
+let jump = 2;
+
+for (let i = 0; i < arraySorted.length; i++) {
+    if (arraySorted[i] % jump == 0) {
+        i = -1;
+        jump++;
+    }
+}
+console.log(jump);
+
 // Even or odd
 function evenOrOdd(num) {
     num = Number(num);
@@ -89,6 +121,27 @@ function area(arg1, arg2, arg3) {
         let triangleArea = (size * height) / 2;
         console.log(triangleArea.toFixed(3));
     }
+}
+
+// Cone area and volume
+function cone(radius, height){
+    let slantHeight = Math.sqrt(radius * radius + height * height);
+    let volume = Math.PI * radius * radius * height / 3;
+    let area = Math.PI * radius * (radius + slantHeight);
+
+    console.log(`volume = ${volume.toFixed(4)}`);
+    console.log(`area = ${area.toFixed(4)}`);
+}
+
+// Heron's formula for triangle area
+function triangleArea(){
+    let input = arguments;
+    let sideA = Number(arguments[0]);
+    let sideB = Number(arguments[1]);
+    let sideC = Number(arguments[2]);
+    let semiPerimeter = (sideA + sideB + sideC) / 2;
+    let formula = Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC));
+    console.log(formula);
 }
 
 // Sum seconds
@@ -285,6 +338,20 @@ function maxNumber(input) {
     console.log(maxNumber);
 }
 
+// Bigger number
+function biggerNumber(arg1, arg2, arg3){
+    let array = [arg1, arg2, arg3].sort();
+    let maxNumber = Number.MIN_SAFE_INTEGER;
+
+    for (let i = 0; i < array.length; i++){
+        let currentNum = Number(array[i]);
+        if (currentNum > maxNumber) {
+            maxNumber = currentNum;
+        }
+    }
+    console.log(maxNumber);
+}
+
 // Count the words
 function countWords(input) {
     let words = input.split(" ");
@@ -354,6 +421,21 @@ function numbers(input) {
     console.log(`Sum of all non prime numbers is: ${sumNonPrime}`);
 }
 
+// Simple prime checker
+function primeChecker(num){
+    let isPrime = false;
+        if (num < 0) {
+            isPrime = false;
+        }
+        if (num % 1 == 0 && num % num == 0 && num === num) {
+            isPrime = true;
+        }
+        if (num % 2 === 0 || num % 3 === 0) {
+            isPrime = false;
+        }
+    console.log(isPrime);
+}
+
 // Print and sum
 function print(num1, num2) {
     let sum = 0;
@@ -368,6 +450,18 @@ function print(num1, num2) {
 
     console.log(printLine);
     console.log(`Sum: ${sum}`);
+}
+
+// Sum digits in a number
+function sumDigits(num){
+    let digit = num.toString();
+    let sum = 0;
+
+    for(let i = 0; i < digit.length; i++){
+        let currentNum = Number(digit[i]);
+        sum += currentNum;
+    }
+    console.log(sum);
 }
 
 // Print triangle
@@ -410,6 +504,17 @@ function rightPlace(str, char, result){
     }
 }
 
+// Looks for char in a string = includes()
+function intFloat(num1, num2, num3){
+    let sum = num1 + num2 + num3;
+    let result = sum + "";
+    if (result.includes('.')){
+        console.log(`${sum} - Float`);
+    } else {
+        console.log(`${sum} - Integer`);
+    }
+}
+
 // Vowel sum
 function sum(arg) {
     let vowels = arg;
@@ -427,7 +532,6 @@ function sum(arg) {
     console.log(sum);
 }
 
-
 // Reverse string - an array element
 let index = 0;
 let username = input[index++].toString();
@@ -441,6 +545,22 @@ for (let i = username.length + 1; i >= 0; i--) {
 function reverseString(string) {
     let result = string.split('').reverse().join('');
     console.log(result);
+}
+
+// Reverse chars in a string
+function reverseString(str1, str2, str3) {
+    let stringRes = str1 + str2 + str3;
+    let result = stringRes.split('').reverse().join(' ');
+    console.log(result);
+}
+
+// Upper or Lower case
+function lowerUpper(input){
+    if (input === input.toUpperCase()){
+        console.log('upper-case');
+    } else {
+        console.log('lower-case');
+    }
 }
 
 // Sort Numbers
@@ -485,6 +605,64 @@ function englishName(input) {
     }
 }
 
+// Calculator
+function calculator(num, operator, num2){
+    num = Number(num);
+    num2 = Number(num2);
+    let result = 0;
+
+    if (operator === "+"){
+        result = num + num2;
+    } 
+    else if (operator === "*"){
+        result = num * num2;
+    }
+    else if (operator === "-"){
+        result = num - num2;
+    }
+    else if (operator === "/"){
+        result = num / num2;
+    }
+    console.log(result.toFixed(2));
+}
+
+// Sum digits i from a loop which sum is equal to 5,7,11
+function specialNums(n) {
+    let sum = 0;
+    let isSpecial = false;
+    let tf = "";
+
+    for (let i = 1; i <= n; i++){
+        i = i.toString();
+        for (let j = 0; j < i.length; j++) {
+            sum += Number(i[j]);
+        }
+        if (sum === 5 || sum === 7 || sum === 11){
+            isSpecial = true;
+            tf = "True";
+        } else {
+            isSpecial = false;
+            tf = "False";
+        }
+        console.log(`${i} -> ${tf}`);
+        sum = 0;
+    }
+}
+
+// Triples of latin letters
+function trippleLetters(n) {
+    for(let i = 0; i < n; i++){
+        let firstLetter = String.fromCharCode(i + 97);
+        for(let j = 0; j < n; j++){
+            let secondLetter = String.fromCharCode(j + 97);
+            for(let k = 0; k < n; k++){
+                let thirdLetter = String.fromCharCode(k + 97);
+                console.log(`${firstLetter}${secondLetter}${thirdLetter}`);
+            }
+        }
+    }
+}
+
 // Get distance between 2 points x and y
 function distance(x1, y1, x2, y2) {
     let firstPoint = x2 - x1;
@@ -493,4 +671,48 @@ function distance(x1, y1, x2, y2) {
     let powerTwo = Math.pow(secondPoint, 2);
     let distance = Math.sqrt(powerOne + powerTwo);
     console.log(distance);
+}
+
+// Fibonacci Odd numbers sum
+function fibonacciOddNums(num) {
+    let prevNum = 0;
+    let currNum = 1;
+    let sum = 0;
+
+    while (currNum <= num) {
+        if (currNum % 2 !== 0) {
+          sum += currNum;
+        }
+        currNum += prevNum;
+        prevNum = currNum - prevNum;
+      }
+      return sum;
+}
+
+// Split array in two parts
+function splitArray(values, size) {
+    const nested = [];
+    let count = 0;
+    
+    while(count < values.length) {
+        nested.push(values.slice(count, count += size));
+    }
+    console.log(nested);
+    return nested;
+}
+
+// Binary to decimal
+function binary(binary){
+    binary = binary;
+    let decimal = 0;
+    let sumDigits = 0;
+    let power = binary.length - 1;
+
+    for(let i = 0; i < binary.length; i++){
+        let current = Number(binary[i]);
+        sumDigits = current * Math.pow(2, power);
+        decimal += sumDigits;
+        power--;
+    }
+    console.log(decimal);
 }
