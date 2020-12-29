@@ -1,33 +1,8 @@
-function magicNum(input) {
-    let first = input[0];
-    let second = input[1];
-    let third = input[2];
-    let sum = 0;
-    let rowSumOne = 0;
-    let rowSumTwo = 0;
-    let rowSumThree = 0;
-    let isMagical = false;
-    let k = 0;
-
-    for (let i = 0; i < first.length; i++) {
-        let ColumnOne = first[i];
-        rowSumOne += ColumnOne;
-        for (let j = i; j < second.length; j++) {
-            let secondColumn = second[i];
-            rowSumTwo += secondColumn;
-            for (k = j; k < third.length; k++) {
-                let thirdColumn = third[k];
-                rowSumThree += thirdColumn;
-                sum = Number(ColumnOne + secondColumn + thirdColumn);
-                if (sum == rowSumOne && sum == rowSumTwo && sum == rowSumThree) {
-                    isMagical = true;
-                }
-                break;
-            }
-            break;
-        }
-    }
-    console.log(isMagical);
+function magicNum(arr) {
+    let sumRow = arr.map((col => col.reduce((a,b) => a + b)));
+    let sumCol = arr.reduce((r, a) => r.map((b, i) => a[i] + b));
+    let allEqual = array => array.every( v => v === array[0]);
+    console.log(allEqual(sumRow) && allEqual(sumRow) && sumRow.toString() === sumCol.toString());
 }
 
 magicNum([[4, 5, 6],
