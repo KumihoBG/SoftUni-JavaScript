@@ -1,32 +1,37 @@
-function spiralMatrix([arr]) {
-    printMatrix(getMatrix(arr));
+function spiralMatrix(n) {
+    let nums = n.toString().split(' ');
+    let rows = Number(nums[0]);
+    let cols = Number(nums[1]);
+    let matrix = [];
 
-    function getMatrix(arr) {
-        let [rows, cols] = arr.split(' ')
-                            .filter(x => x != '')
-                            .map(Number);
-        let [count, maxCount, minRow, minCol, maxRow, maxCol] = [0, rows * cols, 0, 0, rows-1, cols-1];
-        let matrix = [];
-        for (let r = 0; r < rows; r++) matrix[r] = [];
-        while (count < maxCount) {
-            for (let c = minCol; c <= maxCol && count < maxCount; c++)	matrix[minRow][c] = ++count;
-            minRow++;
-            for (let r = minRow; r <= maxRow && count < maxCount; r++)	matrix[r][maxCol] = ++count;
-            maxCol--;
-            for (let c = maxCol; c >= minCol && count < maxCount; c--)	matrix[maxRow][c] = ++count;
-            maxRow--;
-            for (let r = maxRow; r >= minRow && count < maxCount; r--)	matrix[r][minCol] = ++count;
-            minCol++;
+    for (let i = 0; i < rows; i++) {
+        matrix.push([]);
+    }
+    let startRow = 0, startCol = 0, endRow = rows - 1, endCol = cols - 1;
+    let number = 1;
+    while (startRow <= endRow || startCol <= endCol) {
+        for (let i = startCol; i <= endCol; i++) {
+            matrix[startRow][i] = number++;
         }
-        return matrix;
-    }
 
-    function printMatrix(matrix) {
-        matrix.forEach(row => console.log(row.join(' ')));
-        // console.log(matrix.map(row => row.join(' ')).join('\n'));
+        for (let i = startRow + 1; i <= endRow; i++) {
+            matrix[i][endCol] = number++;
+        }
+
+        for (let i = endCol - 1; i >= startCol; i--) {
+            matrix[endRow][i] = number++;
+        }
+
+        for (let i = endRow - 1; i > startRow; i--) {
+            matrix[i][startCol] = number++;
+        }
+        startRow++;
+        startCol++;
+        endRow--;
+        endCol--;
     }
+    console.log(matrix.map(row => row.join(" ")).join("\n"));
 }
 
 spiralMatrix(['5 5']);
-
-spiralMatrix(['3 3']);
+// spiralMatrix(['3 3']);
