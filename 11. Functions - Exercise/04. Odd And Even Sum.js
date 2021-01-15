@@ -1,14 +1,17 @@
-function oddEvenSum(input, magicNum){
-    let sum = 0;
-    for (let i = 0; i < input.length-1; i++){
-        let current = input[i];
-        for (let j = i + 1; j < input.length; j++){
-            let next = input[j];
-            sum = current + next;
-            if (sum == magicNum){
-                console.log(`${current} ${next}`);
-            }
+function oddEvenSum(num){
+    let arr = num.toString();
+    let sumOdd = 0;
+    let sumEven = 0;
+    for (let i = 0; i < arr.length; i++){
+        let current = Number(arr[i]);
+        if (current % 2 != 0){
+            sumOdd += current;
+        } else {
+            sumEven += current;
         }
-
     }
+    console.log(`Odd sum = ${sumOdd}, Even sum = ${sumEven}`);
 }
+
+oddEvenSum(1000435);
+oddEvenSum(3495892137259234);
