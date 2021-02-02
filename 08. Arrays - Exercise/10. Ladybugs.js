@@ -61,9 +61,7 @@ function ladyBugs(arr) {
 		}
  
 	}
- 
 	console.log(ladybugsArray.join(' '));
- 
 }
 
 ladyBugs(	[ 5, '3',
