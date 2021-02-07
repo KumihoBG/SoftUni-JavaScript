@@ -1,5 +1,5 @@
 function dictionary(arrStr){
-    let dict = {};
+    let dictionary = {};
 
     arrStr.forEach(element => {
         element = JSON.parse(element);
