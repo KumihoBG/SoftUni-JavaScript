@@ -22,7 +22,11 @@ function movies(movies) {
             }
         }
     }
-    console.log(list);
+    list.forEach(m => {
+        if (m.name && m.director && m.date){
+            console.log(JSON.stringify(m));
+        }
+    })
 }
 
 movies([
