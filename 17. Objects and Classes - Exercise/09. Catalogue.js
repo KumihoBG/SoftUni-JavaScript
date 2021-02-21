@@ -10,6 +10,7 @@ function catalogue(strArray) {
         };
         sorted.push(product);
     }
+    
     sorted.sort((a,b) => a.name.localeCompare(b.name));
 
     for (let groups of sorted) {
