@@ -22,4 +22,11 @@ function solve(input) {
     for (const key in contacts) {
         console.log(`${key} -> ${contacts[key]}`);
     }
+
+    // Very important method which searches through the object's properties
+    if (contacts.hasOwnProperty('Peter')){
+        console.log('Found');
+    } else {
+        console.log('Not Found!');
+    }
 }
