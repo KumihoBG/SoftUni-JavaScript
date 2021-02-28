@@ -83,6 +83,7 @@ function setF(){
     let uniqueNames = new Set(names);
     // add new elements to the set
     uniqueNames.add('Petko');
+    uniqueNames.delete('Gosho');
     // prints elements in set on new line
     uniqueNames.forEach(name => console.log(name));
     let backToArray = Array.from(uniqueNames);
