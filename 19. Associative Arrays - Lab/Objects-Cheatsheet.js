@@ -107,3 +107,11 @@ function sortMap(){
     }   
     
 }
+
+// Delete Object 
+let obj = {
+    name = "Pesho",
+    age = 20,
+};
+
+delete obj.name;
