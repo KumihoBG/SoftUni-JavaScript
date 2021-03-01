@@ -1,16 +1,19 @@
 function solve(arrStr){
-    let items = new Map();
+    let meetings = {};
 
     arrStr.forEach(line => {
-        let [days, name] = line.split(' ');
+        let [day, name] = line.split(' ');
+        if (meetings[day]) {
+            console.log(`Conflict on ${day}!`);
+        } else {
+            meetings[day] = name;
+            console.log(`Scheduled for ${day}`);
+        }
     });
-
-    // for (const line of arrStr) {
-    //     let [days, name] = line.split(' ');
-    //     items.set()
-    // }
     
-    
+    for (const [day, name] of Object.entries(meetings)){
+        console.log(`${day} -> ${name}`);
+    }
 }
 
 solve(['Monday Peter',

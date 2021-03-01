@@ -11,6 +11,16 @@ function solve(input) {
     Object.keys(contacts).forEach(key => console.log(`${key} -> ${contacts[key]}`));
 }
 
+// For in - keys
+for (let key in yourobject) {
+    console.log(key, yourobject[key]);
+  }
+
+// for of KVP
+for (let [key, value] of Object.entries(yourobject)) {
+    console.log(key, value);
+}
+
 function solve(input) {
     let contacts = {};
     let arrayFromObject = [];
@@ -98,7 +108,11 @@ function sortMap(){
     numbers.set('One', 1);
     numbers.set('Two', 2);
 
+    // for map
     let mapEntries = Array.from(numbers.entries());
+    // for object
+    // let objectEntries = Object.entries(numbers);
+    
     let sortedMap = mapEntries.sort((a, b) => {
         return a[1] - b[1];
     })
