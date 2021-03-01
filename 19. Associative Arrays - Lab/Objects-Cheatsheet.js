@@ -14,7 +14,7 @@ function solve(input) {
 // For in - keys
 for (let key in yourobject) {
     console.log(key, yourobject[key]);
-  }
+}
 
 // for of KVP
 for (let [key, value] of Object.entries(yourobject)) {
@@ -55,40 +55,40 @@ function solve(input) {
 }
 
 solve(['Tim 0834212554',
-'Peter 0877547887',
-'Bill 0896543112',
-'Tim 0876566344']
+    'Peter 0877547887',
+    'Bill 0896543112',
+    'Tim 0876566344']
 );
 
 // Map - iterate, print
-function solve(arrStr){
+function solve(arrStr) {
     let storage = new Map();
 
     arrStr.forEach(line => {
         let [item, quantity] = line.split(' ');
         quantity = Number(quantity);
 
-        if (storage.has(item)){
+        if (storage.has(item)) {
             let oldQuantity = storage.get(item);
             storage.set(item, oldQuantity + quantity);
         } else {
             storage.set(item, quantity);
         }
-    });   
+    });
 
     // Standard printing
-        // for (const key of storage.keys()) {
-        //     console.log(`${key} -> ${storage.get(key)}`); 
-        // }
+    // for (const key of storage.keys()) {
+    //     console.log(`${key} -> ${storage.get(key)}`); 
+    // }
 
     // KVP Printing = KEY VALUE PAIR
-        for (const kvp of storage.entries()) {
-            console.log(`${kvp[0]} -> ${kvp[1]}`);
-        }
+    for (const kvp of storage.entries()) {
+        console.log(`${kvp[0]} -> ${kvp[1]}`);
+    }
 }
 
 // Set unique elements from array to set and back to array
-function setF(){
+function setF() {
     let names = ['Pesho', 'Gosho', 'Pesho'];
     let uniqueNames = new Set(names);
     // add new elements to the set
@@ -102,7 +102,7 @@ function setF(){
 }
 
 // Sort map
-function sortMap(){
+function sortMap() {
     let numbers = new Map();
     numbers.set('Three', 3);
     numbers.set('One', 1);
@@ -112,14 +112,14 @@ function sortMap(){
     let mapEntries = Array.from(numbers.entries());
     // for object
     // let objectEntries = Object.entries(numbers);
-    
+
     let sortedMap = mapEntries.sort((a, b) => {
         return a[1] - b[1];
     })
     for (const kvp of sortedMap) {
         console.log(`${kvp[1]}`);
-    }   
-    
+    }
+
 }
 
 // Delete Object 
@@ -129,3 +129,29 @@ let obj = {
 };
 
 delete obj.name;
+
+// Get average number
+function getAverageGrade(grades){
+    let gradesSum = grades.reduce((a, b) => a + b, 0);
+    return gradesSum / grades.length;
+}
+
+// Find word occurrences in obj - sort descending
+function wordOccurrences(input) {
+    let words = {};
+    let initialValue = 1;
+
+    for (const line of input) {
+        let word = line.split(',').toString();
+        if (words.hasOwnProperty(word)){
+            words[word] = words[word] + 1;
+        } else {
+            words[word] = initialValue;
+        }
+    }
+    let sortedObj = Object.entries(words).sort((a, b) => b[1] - a[1]);
+    
+    for (const kvp of sortedObj) {
+        console.log(`${kvp[0]} -> ${kvp[1]} times`);
+    }
+}
