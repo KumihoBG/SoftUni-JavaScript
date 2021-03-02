@@ -1,14 +1,14 @@
 function wordsTracker(input) {
     let text = input.slice();
-    let occurences = getWantedWords(input);
+    let occurances = getWantedWords(input);
     let count = 1;
 
     function getWantedWords(arr){
-        input.shift().split(' ').forEach(word => {
-            
+        let occurances = {};
+        arr.shift().split(' ').forEach(word => {
+            occurances[word] = 0;
         });;
     }
-
 }
 
 wordsTracker([
