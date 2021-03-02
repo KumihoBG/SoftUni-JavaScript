@@ -1,13 +1,25 @@
 function wordsTracker(input) {
-    let text = input.slice();
+    let text = input.slice(1);
     let occurances = getWantedWords(input);
-    let count = 1;
+
+    text.forEach(word => {
+        if(Object.keys(occurances).includes(word)){
+            occurances[word]++;
+        }
+    });
+
+    let sorted = Object.entries(occurances).sort((a,b) => b[1] - a[1]);
+
+    for (const [key, value] of sorted) {
+        console.log(`${key} - ${occurances[key]}`);
+    }
 
     function getWantedWords(arr){
         let occurances = {};
         arr.shift().split(' ').forEach(word => {
             occurances[word] = 0;
         });;
+        return occurances;
     }
 }
 
