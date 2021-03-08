@@ -1,47 +1,37 @@
-function laptop(input) {
-    class Laptop {
-        constructor(producer, age, brand) {
-            this.info = {
-                producer,
-                age,
-                brand
-            }
-            this.isOn = false;
-            this.quality = 0;
-        }
-
-        get price() {
-            return 800 - this.age * 2 + this.quality * 0.5
-        }
-        turnOn() {
-            this.isOn = true
-            return this.isOn
-        }
-        turnOff() {
-            this.isOn = false
-            return this.isOn
-        }
-        showInfo() {
-            return JSON.stringify(this.producer, this.age, this.brand);
-        }
+class Laptop {
+    constructor(info, quality) {
+        this.info = info;
+        this.quality = quality;
+        this.isOn = false;
     }
-    const Laptop = result;
-
-    let laptop = new Laptop({ producer: "Dell", age: 2, brand: "XPS" }, 10);
-
-    laptop.turnOn()
-    laptop.turnOff()
-    laptop.turnOn()
-    console.log(laptop);
+ 
+    turnOn() {
+        this.isOn = true;
+        this.quality--;
+    }
+ 
+    turnOff() {
+        this.isOn = false;
+        this.quality--;
+    }
+ 
+    showInfo() {
+        return JSON.stringify(this.info);
+    }
+ 
+    get price() {
+        return 800 - this.info.age * 2 + this.quality * 0.5;
+    }
 }
 
-laptop(let info = {producer: "Dell", age: 2, brand: "XPS"}
-let laptop = new Laptop(info, 10)
-laptop.turnOn()
-console.log(laptop.showInfo())
-laptop.turnOff()
-console.log(laptop.quality)
-laptop.turnOn()
-console.log(laptop.isOn)
-console.log(laptop.price)
-);
+    let info = {producer: "Dell", age: 2, brand: "XPS"}
+    let laptop = new Laptop(info, 10)
+    laptop.turnOn()
+    console.log(laptop.showInfo())
+    laptop.turnOff()
+    console.log(laptop.quality)
+    laptop.turnOn()
+    console.log(laptop.isOn)
+    console.log(laptop.price)
+
+laptop();
