@@ -1,7 +1,9 @@
 function solve(text, word) {
-    let censored = '';
-    while (censored.includes(word)){
-        censored = text.replace(word, "*" .repeat(word.length));
+    let indexOfMatch = text.indexOf(word);
+
+    while (indexOfMatch !== -1) {
+        text = text.replace(word, "*" .repeat(word.length));
+        indexOfMatch = text.indexOf(word, indexOfMatch + 1);
     }
     console.log(text);
 }
