@@ -1,8 +1,8 @@
 function ticket(input) {
     let splitPatternTrim = / *, */g;
     let line = input.toString().split(splitPatternTrim);
-    let jackpot = /(?<symbol>[@#$^]{20})/gm;
-    let pattern = /[a-z]*[@#$^]{6}[a-z]*[@#$^]{6}[a-z]*/gi;
+    let jackpot = /(?<symbol>[@#$^]{20})/gi;
+    let pattern = /[\s*,?\s*]/gi;
     let match = /[@#$^]{6}/gi;
     let validity = /[^@#$^]{6}[\w]*[\W]*/gi;
     let lengthOne = 0;
