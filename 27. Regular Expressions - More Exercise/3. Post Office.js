@@ -39,21 +39,16 @@ function postOffice(input) {
             length = Number(length) + 1;
             newChar = String.fromCharCode(code);
             for (let el of dataThree) {
-                let current = el;
-                let startChar = current[0];
-                let isChar = ((char === newChar) && (char === startChar) && (newChar == startChar));
-                let isLength = current.length === length;
- 
-                if (isChar && isLength) {
-                    if (!data.includes(current)){
-                        data.push(current);
+                let startChar = el[0];
+                if ((char === newChar) && (char === startChar) && (newChar == startChar) && el.length === length) {
+                    if (!data.includes(el)){
+                        data.push(el);
                     }
                     break;
                 }
             }
         }
     }
-
     console.log(data.join('\n'));
 }
 
